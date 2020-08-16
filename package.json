@@ -1,0 +1,30 @@
+{
+  "name": "mp-bp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.config.js",
+    "cold": "webpack-dev-server --no-inline --no-hot --config webpack.dev.config.js",
+    "build": "webpack --mode development --config webpack.config.js",
+    "production": "npm version patch && webpack --mode production --config webpack.config.js",
+    "netlify": "webpack --mode production --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "html-webpack-plugin": "^4.3.0",
+    "prettier": "2.0.5",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {}
+}
