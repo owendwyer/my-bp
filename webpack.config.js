@@ -1,4 +1,5 @@
-
+var PACKAGE = require("./package.json");
+var version = PACKAGE.version;
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
