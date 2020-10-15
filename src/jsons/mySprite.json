@@ -1,0 +1,17 @@
+{"frames": {
+"back.png":
+{
+	"frame": {"x":0,"y":0,"w":800,"h":550},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":550},
+	"sourceSize": {"w":800,"h":550}
+}},
+"meta": {
+	"version": "1.0",
+	"image": "mainSprite.0.0.png",
+	"format": "RGBA8888",
+	"size": {"w":800,"h":550},
+	"scale": "1"
+}
+}

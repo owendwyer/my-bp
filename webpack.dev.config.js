@@ -13,9 +13,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
 	scriptLoading: 'defer',
-	template: 'src/indextemplatedev.html'
+	template: 'src/html/indextemplatedev.html'
 	})
   ],
+	externals: {
+		"pixi.js": "PIXI",
+  	"opdPreloader": "opdPreloader"
+	//	{"gsap": "gsap"},
+	//	{"WebFont": "WebFont"},
+	//	{"Howler": "Howler"}
+	},
   module: {
     rules: [
       {
