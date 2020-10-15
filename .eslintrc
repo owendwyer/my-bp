@@ -3,9 +3,6 @@
   "env": {
     "browser": true
   },
-  "globals": {
-    "Konva": "readonly"
-  },
   "parser": "babel-eslint",
   "extends": ["airbnb"],
   "rules": {
