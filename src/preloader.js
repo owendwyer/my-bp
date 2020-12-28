@@ -4,20 +4,21 @@ import PIXI from 'pixi.js';
 import mySpriteData from './jsons/mySprite.json';
 //import myContSpriteData from '../jsons/sets_0_5.json';
 
+const MAIN_SPRITE_PATH = './res/mainSprite.0.0.png';
+
 class Preloader {
 	constructor(callBack) {
 		this.callBack = callBack;
 		//this.tryTimes = 3;
 		this.loader = new PIXI.Loader();
-		this.loadedFun = this.loaded.bind(this);
-		this.gotErrorFun = this.gotError.bind(this);
+		this.loaded = this.loaded.bind(this);
+		this.gotError = this.gotError.bind(this);
 	}
 
 	startLoad() {
-		let myPath = './res/mainSprite.0.0.png';
-		this.loader.add('main', myPath);
-		this.loader.onError.add(this.gotErrorFun);
-		this.loader.onComplete.add(this.loadedFun);
+		this.loader.add('main', MAIN_SPRITE_PATH);
+		this.loader.onError.add(this.gotError);
+		this.loader.onComplete.add(this.loaded);
 		//this.loadFonts();
 		this.loader.load();
 	}

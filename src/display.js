@@ -21,14 +21,21 @@ class Display {
 	}
 
 	initRenderer() {
-		this.renderer = new PIXI.Renderer({
+		let rendererOptions = {
 			width: DEF_WIDTH,
 			height: DEF_HEIGHT,
 			transparent: true,
 			antialias: true,
 			autoDensity: true,
 			resolution: window.devicePixelRatio
-		});
+		};
+		if (PIXI.utils.isWebGLSupported()) {
+			console.log('Yes WebGLSupported');
+			this.renderer = new PIXI.Renderer(rendererOptions);
+		} else {
+			console.log('Not WebGLSupported');
+			this.renderer = new PIXI.CanvasRenderer(rendererOptions);
+		}
 		PIXI.settings.ROUND_PIXELS = true;
 		this.renderer.view.id = 'myCanvas';//needed for hscores
 		this.renderer.plugins.interaction.autoPreventDefault = false;
