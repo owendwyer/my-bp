@@ -5,7 +5,6 @@ import Display from './display';
 
 class Main {
 	preload() {
-		console.log('todo - need to bundle js src from the indextemplatedev.html and use that instead');
 		console.log('todo - setup polyfill');
 		this.orientationChange = this.orientationChange.bind(this);
 		this.preloader = new Preloader(this.preloadComplete.bind(this));
