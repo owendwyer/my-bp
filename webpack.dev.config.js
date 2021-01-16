@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
@@ -12,15 +13,18 @@ module.exports = {
   devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-	scriptLoading: 'defer',
-	template: 'src/html/indextemplatedev.html'
-	})
+    	scriptLoading: 'defer',
+    	template: 'src/html/indextemplatedev.html'
+  	}),
+    new webpack.DefinePlugin({
+      'OPD_ENV': JSON.stringify('dev')
+    })
   ],
 	externals: {
 		"pixi.js": "PIXI",
-  	"opdPreloader": "opdPreloader"
-	//	{"gsap": "gsap"},
-	//	{"WebFont": "WebFont"},
+  	"opdPreloader": "opdPreloader",
+    "gsap": "gsap",
+		"WebFont": "WebFont"
 	//	{"Howler": "Howler"}
 	},
   module: {

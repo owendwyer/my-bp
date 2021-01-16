@@ -6,8 +6,12 @@ import Display from './display';
 class Main {
 	preload() {
 		console.log('todo - setup polyfill');
-		this.orientationChange = this.orientationChange.bind(this);
-		this.preloader = new Preloader(this.preloadComplete.bind(this));
+
+		this.preloadCompleteBool = false;
+		this.displayChange = this.displayChange.bind(this);
+		this.setDisplayLock = this.setDisplayLock.bind(this);
+		this.setTouchScroll = this.setTouchScroll.bind(this);
+		this.preloader = new Preloader(this.preloadComplete.bind(this), this.fontsLoaded.bind(this));
 		this.preloader.startLoad();
 	}
 
@@ -17,18 +21,34 @@ class Main {
 		} else {
 			opdPreloader.clearAll();
 			this.init(res);
+			if (this.preloader.checkFontsLoaded()) this.view.fontsLoaded();
+			this.preloadCompleteBool = true;
 		}
-	}
-
-	orientationChange(orientation) {
-		this.view.orientationChange(orientation);
 	}
 
 	init(res) {
 		this.view = new View();
-		this.display = new Display(this.view, this.orientationChange);
-		let orientation = this.display.getOrientation();
-		this.view.init(res, orientation);
+		this.display = new Display(this.view, this.displayChange);
+		let displayVars = this.display.getDisplayVars();
+		this.view.on('setdisplaylock', this.setDisplayLock);//b4 init
+		this.view.on('settouchscroll', this.setTouchScroll);
+		this.view.init(res, displayVars);
+	}
+
+	fontsLoaded() {
+		if (this.preloadCompleteBool) this.view.fontsLoaded();
+	}
+
+	displayChange(displayVars) {
+		this.view.displayChange(displayVars);
+	}
+
+	setDisplayLock(lock) {
+		this.display.setDisplayLock(lock);
+	}
+
+	setTouchScroll(canScroll) {
+		this.display.setTouchScroll(canScroll);
 	}
 }
 

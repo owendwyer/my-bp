@@ -7,8 +7,11 @@
     "start": "webpack-dev-server --config webpack.dev.config.js",
     "cold": "webpack-dev-server --no-inline --no-hot --config webpack.dev.config.js",
     "build": "webpack --mode development --config webpack.config.js",
+    "buildLegacy": "webpack --mode development --config webpack.legacy.config.js",
     "production": "npm version patch && webpack --mode production --config webpack.config.js",
-    "netlify": "webpack --mode production --config webpack.config.js"
+    "productionLegacy": "npm version patch && webpack --mode production --config webpack.legacy.config.js",
+    "netlify": "webpack --mode production --config webpack.config.js",
+    "combine": "gulp combine"
   },
   "keywords": [],
   "author": "",

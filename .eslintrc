@@ -3,6 +3,9 @@
   "env": {
     "browser": true
   },
+  "globals": {
+    "OPD_ENV": "readonly"
+  },
   "parser": "babel-eslint",
   "extends": ["airbnb"],
   "rules": {
