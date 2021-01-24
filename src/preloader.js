@@ -1,12 +1,12 @@
 import PIXI from 'pixi.js';
-import webfont from 'WebFont';
+import webfont from "./general/webfont";
 import mySpriteData from './jsons/mySprite.json';
 
 const RES_URL = {
 	dev: './res/',
 	prod: 'https://www.gamestolearnenglish.com/games/[dirhere]/res/'
 };
-const MAIN_SPRITE_PATH = './res/mainSprite.0.0.png';
+const MAIN_SPRITE_PATH = './mainSprite.0.0.png';
 
 class Preloader {
 	constructor(callBack, fontsCallback) {
@@ -35,8 +35,8 @@ class Preloader {
 			this.startLoad();
 			console.log('load error, retrying', e);
 		} else {
-			this.emit('failed');
 			console.log('load error, giving up', e);
+			this.callBack(null);
 		}
 	}
 
@@ -56,6 +56,10 @@ class Preloader {
 		this.loader.onError.detachAll();
 		this.loader.onComplete.detachAll();
 		this.loader.destroy();
+	}
+
+	checkFontsLoaded() {
+		return this.areFontsLoaded;
 	}
 
 	loadFonts() {
