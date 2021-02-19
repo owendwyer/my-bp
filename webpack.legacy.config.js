@@ -7,7 +7,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: __dirname + "/dist/js",
-    filename: "bundle.min." + version + ".js",
+    filename: "all.min." + version + ".js",
   },
   devServer: {
     contentBase: "./dist",

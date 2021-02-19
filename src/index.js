@@ -5,8 +5,6 @@ import Display from './display';
 
 class Main {
 	preload() {
-		console.log('todo - setup polyfill');
-
 		this.preloadCompleteBool = false;
 		this.displayChange = this.displayChange.bind(this);
 		this.setDisplayLock = this.setDisplayLock.bind(this);
@@ -53,41 +51,6 @@ class Main {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	///////////////////////////////////////////////////////////////////////////
-	//polyfill check and load - probably put into main
 	let main = new Main();
 	main.preload();
 });
-
-/*
-
-polyfillLoad() {
-	this.loadScript(POLYFILL_PATH, (err) => {
-		if (err) {
-			opdPreloader.browserNotSupported();
-		} else {
-		let main = new Main();
-		main.preload();
-		}
-	});
-}
-
-loadScript(url, callback) {
-	let script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = url;
-	script.onload = function() {
-		console.log('loaded');
-		script.onload = null;
-		script.onerror = null;
-		callback(null);
-	};
-	script.onerror = function() {
-		script.onload = null;
-		script.onerror = null;
-		callback(true);
-	};
-	document.head.appendChild(script);
-}
-
-*/

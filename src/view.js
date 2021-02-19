@@ -21,7 +21,8 @@ class View extends PIXI.Container {
 		this.background = new Background(res, displayVars);
 		this.audioPlayer = new AudioPlayer(res);
 
-		this.addChild(this.background, this.audioPlayer);
+		this.addChild(this.background);
+		// this.addChild(this.audioPlayer);
 
 		this.setupDisplay(displayVars);
 		this.addLists();
