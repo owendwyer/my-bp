@@ -19,7 +19,7 @@ module.exports = {
     	template: 'src/html/indextemplate.html'
   	}),
     new webpack.DefinePlugin({
-      'OPD_ENV': JSON.stringify('dev')
+      'OPD_ENV': JSON.stringify('prod')
     })
   ],
 	externals: {
